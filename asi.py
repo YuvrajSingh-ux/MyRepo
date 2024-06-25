@@ -68,7 +68,7 @@ app.layout = html.Div(
             style={'flex': '0 1 350px', 'padding': '10px', 'boxSizing': 'border-box',},
             children=[
 
-                html.H1("Select Parameters to Get Chart!!!", className="parameter-data",style={'fontSize': '15px', 'fontWeight': 'normal','marginBottom': '0px', 'marginTop': '20px'}),
+                html.H1("Select Parameters to Get Chart", className="parameter-data",style={'fontSize': '15px', 'fontWeight': 'normal','marginBottom': '0px', 'marginTop': '20px'}),
 
                 html.Div(
                     children=[
