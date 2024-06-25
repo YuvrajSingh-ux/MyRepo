@@ -8,6 +8,7 @@ import plotly.io as pio
 import io
 from dash.dependencies import Input, Output, State
 from dotenv import load_dotenv  # Add this line
+import sklearn
 
 
 # Load environment variables from .env file
