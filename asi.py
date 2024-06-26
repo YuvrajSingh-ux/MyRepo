@@ -8,8 +8,6 @@ import plotly.io as pio
 import io
 from dash.dependencies import Input, Output, State
 from dotenv import load_dotenv  # Add this line
-import sklearn
-
 
 # Load environment variables from .env file
 load_dotenv()
@@ -44,7 +42,8 @@ query = '''
 '''
 
 df = pd.read_sql_query(query, db_url)
-df1 = pd.read_csv(r'C:\Users\T18\cpigraph\cpigraph\asi\code\asi_indicator.csv', sep=',')
+df1 = pd.read_csv(r'C:\Users\T11\Desktop\Yagyam\Work\Day 20 - Final\cpigraph\asi\code\asi_indicator.csv', sep=',')
+# df1 = pd.read_csv('asi_indicator.csv', sep=',')
 
 external_stylesheets = [
     {
@@ -66,11 +65,9 @@ app.layout = html.Div(
     className="content-wrapper",
     children=[
         html.Div(
-            style={'flex': '0 1 350px', 'padding': '10px', 'boxSizing': 'border-box',},
+            style={'flex': '0 1 320px', 'padding': '10px', 'boxSizing': 'border-box'},
             children=[
-
                 html.H1("Select Parameters to Get Chart", className="parameter-data",style={'fontSize': '15px', 'fontWeight': 'normal','marginBottom': '0px', 'marginTop': '20px'}),
-
                 html.Div(
                     children=[
                         html.Div(children="Indicator", className="menu-title"),
@@ -161,7 +158,7 @@ app.layout = html.Div(
             ]
         ),
         html.Div(
-            style={'flex': '1', 'padding': '20px', 'position': 'relative', 'text-align':'center'},
+            style={'flex': '1', 'padding': '20px', 'position': 'relative', 'text-align':'center','height': 'calc(100% - 50px)'},
             children=[
                 dcc.Loading(
                     id="loading-graph",
@@ -169,7 +166,7 @@ app.layout = html.Div(
                     children=[
                         html.Div(
                             id='graph-container',
-                            #style={'width': '100%', 'height': '50vh'},
+                            style={'width': '100%', 'height': '800px'},
                             children=[
                                 html.Div(
                                     className="loader",  # add a class for styling
@@ -179,7 +176,7 @@ app.layout = html.Div(
                                 dcc.Graph(
                                     id="time-series-plot",
                                     config={"displayModeBar": False},
-                                    #style={'width': '100%', 'height': '80%'}
+                                    style={'width': '100%', 'height': 'calc(100% - 50px)'}
                                 ),
                             ]
                         ),
@@ -283,12 +280,13 @@ def update_plot(n_clicks_plot, n_clicks_graph, selected_indicator, selected_stat
                 xaxis_title_font=dict(size=18, family='Arial, sans-serif', color='black', weight='bold'),
                 yaxis_title_font=dict(size=18, family='Arial, sans-serif', color='black', weight='bold'),
                 font_color='black',
-                margin=dict(t=0),
+                margin = dict(t=0),
+                xaxis=dict(
+                tickangle=270 # Set the tickangle based on selected_frequency
+              ),
                 # title_x=0.5,
-                 width=None,  # Set width to None to allow Plotly to adjust dynamically
-                height=None,  # Set height to None to allow Plotly to adjust dynamically
-                autosize=True, 
-
+                # width=1520,
+                # height=770
             )
 
             fig.update_xaxes(type='category', color='black')
@@ -348,11 +346,13 @@ def update_plot(n_clicks_plot, n_clicks_graph, selected_indicator, selected_stat
             xaxis_title_font=dict(size=18, family='Arial, sans-serif', color='black', weight='bold'),
             yaxis_title_font=dict(size=18, family='Arial, sans-serif', color='black', weight='bold'),
             font_color='black',
-            margin=dict(t=0),
+            margin = dict(t=0),
+            xaxis=dict(
+            tickangle=270 # Set the tickangle based on selected_frequency
+             ),
             # title_x=0.5,
-            width=None,  # Set width to None to allow Plotly to adjust dynamically
-            height=None,  # Set height to None to allow Plotly to adjust dynamically
-            autosize=True, 
+            # width=1520,
+            # height=770,
         )
 
         fig.update_xaxes(type='category', color='black')
@@ -383,4 +383,4 @@ def download_svg(n_clicks, figure):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True,dev_tools_ui=False, dev_tools_props_check=False,host='0.0.0.0', port=9003)
+    app.run_server(debug=True,dev_tools_ui=False, dev_tools_props_check=False, port=9003,host='0.0.0.0')
