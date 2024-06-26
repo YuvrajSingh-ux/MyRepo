@@ -10,7 +10,6 @@ from dash.dependencies import Input, Output, State
 from dotenv import load_dotenv  # Add this line
 # Load environment variables from .env file
 load_dotenv()
-#Project:
 # Construct database URL from environment variables
 #db_url = f"{os.getenv("ENGINE")}://{os.getenv('DTABASE_USER')}:{os.getenv('PASSWORD')}@{os.getenv('HOST')}:{os.getenv('PORT')}/{os.getenv('ASI_DATABASE')}"
 db_url =  create_engine(f'{os.getenv("ENGINE")}://{os.getenv("DTABASE_USER")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}/{os.getenv("ASI_DATABASE")}')
