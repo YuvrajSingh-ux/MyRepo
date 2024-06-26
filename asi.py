@@ -181,28 +181,7 @@ app.layout = html.Div(
                         ),
                     ]
                 ),
-                # html.Div(
-                #     id='info-text',
-                #     style={'display': 'none', 'position': 'absolute', 'bottom': '40px', 'right': '10px', 'background-color': 'white', 'padding': '10px', 'border-radius': '5px', 'box-shadow': '0px 0px 5px 0px rgba(0,0,0,0.75)'},
-                #     children=[
-                #         html.P("This is a ASI Time Series Plot visualization. Select the parameters from the dropdowns on the left to generate the plot. You can also download the plot as an SVG image by clicking the 'Download' button."),
-                #     ]
-                # ),
-                # html.Button(
-                #     html.I(className="fas fa-info-circle"),
-                #     id="info-button",
-                #     className='info-button',
-                #     style={
-                #         'position': 'absolute',
-                #         'bottom': '10px',
-                #         'right': '10px',
-                #         'background': 'none',
-                #         'border': 'none',
-                #         'color': 'black',
-                #         'cursor': 'pointer',
-                #         'font-size': '24px'
-                #     }
-                # ),
+              
             ],
         ),
     ]
