@@ -8,7 +8,7 @@ import plotly.io as pio
 import io
 from dash.dependencies import Input, Output, State
 from dotenv import load_dotenv  # Add this line
-
+import matplotlib
 # Load environment variables from .env file
 load_dotenv()
 
@@ -67,7 +67,7 @@ app.layout = html.Div(
         html.Div(
             style={'flex': '0 1 320px', 'padding': '10px', 'boxSizing': 'border-box'},
             children=[
-                html.H1("Select Parameters to Get Chart", className="parameter-data",style={'fontSize': '15px', 'fontWeight': 'normal','marginBottom': '0px', 'marginTop': '20px'}),
+                html.H1("Select Parameters to Get Chart!!!", className="parameter-data",style={'fontSize': '15px', 'fontWeight': 'normal','marginBottom': '0px', 'marginTop': '20px'}),
                 html.Div(
                     children=[
                         html.Div(children="Indicator", className="menu-title"),
